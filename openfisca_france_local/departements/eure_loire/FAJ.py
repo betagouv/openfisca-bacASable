@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openfisca_france.model.base import Variable, Individu, MONTH
+from openfisca_france.model.base import *
 
 
 class eure_et_loir_eligibilite_FAJ(Variable):
@@ -10,7 +10,8 @@ class eure_et_loir_eligibilite_FAJ(Variable):
 
     def formula(individu, period, parameters):
         reside_eure_et_loir = individu.menage('eure_loire_eligibilite_residence', period)
-        a_entre_18_25_ans = 18 <= individu.famille.demandeur('age', period) <= 25
+        age_demandeur = individu.famille.demandeur('age', period)
+        a_entre_18_25_ans = 18 <= age_demandeur <= 25
         rsa = parameters(period).prestations.minima_sociaux.rsa
         revenue_inferieur_RSA = individu('eure_et_loir_revenus_nets_du_travail', period) < rsa.montant_de_base_du_rsa
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openfisca_france.model.base import Variable, Individu, MONTH
+from openfisca_france.model.base import *
 
 
 class eure_et_loir_eligibilite_pretvehicule(Variable):
